@@ -1,15 +1,11 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Check } from 'lucide-react'
+import { Check } from '../../../shared/icons'
 import { useAppDispatch } from '../../../app/hooks'
 import { closeFeedback } from '../../ui/uiSlice'
-import { Modal } from '../../../components/ui/Modal'
+import { Modal } from '../../../shared/components/ui'
 import { feedbackSchema, type FeedbackValues } from '../feedbackSchema'
-import angryRating from '../../../assets/figma/home/rating-angry.png'
-import blushRating from '../../../assets/figma/home/rating-blush.png'
-import heartEyesRating from '../../../assets/figma/home/rating-heart-eyes.png'
-import neutralRating from '../../../assets/figma/home/rating-neutral.png'
-import smirkRating from '../../../assets/figma/home/rating-smirk.png'
+import { angryRating, blushRating, heartEyesRating, neutralRating, smirkRating } from '../../../assets/images'
 import '../home.css'
 
 const ratingOptions = [

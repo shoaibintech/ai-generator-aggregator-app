@@ -1,4 +1,4 @@
-import { ChevronDown, Search } from 'lucide-react'
+import { ChevronDown, Search } from '../../shared/icons'
 import { useNavigate } from 'react-router-dom'
 import { useMemo, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
@@ -6,7 +6,7 @@ import { openFeedback } from '../ui/uiSlice'
 import { FeedbackModal } from './components/FeedbackModal'
 import { GeneratorCard } from './components/GeneratorCard'
 import { generatorCatalog, type Generator, type GeneratorCategory } from './generatorCatalog'
-import moreToolsBanner from '../../assets/figma/home/more-tools-banner.png'
+import { moreToolsLeftArtwork, moreToolsMiddleArtwork, moreToolsRightArtwork } from '../../assets/images'
 import './home.css'
 
 type Filter = 'All' | GeneratorCategory
@@ -71,10 +71,14 @@ export function HomePage() {
         <button className="view-more" type="button"><ChevronDown size={16} /> View More</button>
 
         <section className="more-tools-callout">
-          <h2 className="sr-only">More tools are coming!</h2>
-          <p className="sr-only">More tools are being built. Have a suggestion?</p>
-          <img alt="" aria-hidden="true" src={moreToolsBanner} />
-          <button aria-label="Leave a suggestion" className="more-tools-action" onClick={() => dispatch(openFeedback())} type="button" />
+          <img alt="" aria-hidden="true" className="more-tools-art more-tools-art--left" src={moreToolsLeftArtwork} />
+          <img alt="" aria-hidden="true" className="more-tools-art more-tools-art--middle" src={moreToolsMiddleArtwork} />
+          <img alt="" aria-hidden="true" className="more-tools-art more-tools-art--right" src={moreToolsRightArtwork} />
+          <div className="more-tools-copy">
+            <h2>More tools are coming!</h2>
+            <p>Have a suggestion for what we should build next?</p>
+            <button className="more-tools-action" onClick={() => dispatch(openFeedback())} type="button">Leave a suggestion</button>
+          </div>
         </section>
       </div>
       {feedbackOpen && <FeedbackModal />}

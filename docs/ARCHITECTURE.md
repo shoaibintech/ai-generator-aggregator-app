@@ -2,11 +2,13 @@
 
 ## Design principles
 
-Feature code owns its UI, schemas, mock data, and state-facing selectors. Shared code belongs in `components`, `app`, `lib`, or `styles` only when it is reused across two or more features.
+Feature code owns its UI, schemas, mock data, and state-facing selectors. Shared code belongs in `shared`, `app`, `lib`, or `styles` only when it is reused across two or more features.
 
 ## State boundaries
 
 `features/ui` contains application-wide, transient UI state such as the feedback dialog and selected generation. `features/generations` uses Redux Toolkit's entity adapter so a real API can replace the mocked records without changing consumers. Form state remains local in React Hook Form; validated values are the only values promoted to feature actions.
+
+`shared/components` owns UI primitives and application shell composition; `shared/icons` and `assets/images` expose named barrel exports. Feature components import these public entry points rather than reaching into individual image or icon files.
 
 ## Adding a generator
 
@@ -28,4 +30,4 @@ Global tokens live in `styles/tokens.css`. Component/feature CSS is deliberately
 
 ## Mock-data contract
 
-Mock generation data is typed as `Generation`. Keep it aligned with the expected server response shape. Avoid raw untyped objects in components; changes should be isolated to the adapter/service boundary.
+Mock generation data is typed as `Generation`. It includes status, progress, generation kind, and settings so loading/process states are testable without an API. Keep it aligned with the expected server response shape. Avoid raw untyped objects in components; changes should be isolated to the adapter/service boundary.

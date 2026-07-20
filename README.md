@@ -30,8 +30,9 @@ npm test
 ## Implemented UI
 
 - Home generator catalogue with category/search controls and responsive cards
-- Figma-matched Home and Video Creation visuals, using local rendered assets from the supplied Screens source frames
-- Generations gallery and detail panel
+- Figma-matched Home and Video Creation visuals using individual local source assets and live DOM content
+- Individually rendered generation cards, skeleton loading states, and a generation-process/detail dialog
+- Functional prompt composer with validated prompt, image attachment, model/settings dropdowns, and mock progress
 - Feedback dialog with validated rating and suggestion form
 - Desktop navigation rail, exact mobile card/gallery variants, and responsive layouts
 
@@ -42,12 +43,15 @@ The images and generation objects are intentionally mocked in `src/features/gene
 ```text
 src/
   app/                    Routing, providers, store, typed hooks
-  components/             Reusable layout and UI primitives
+  assets/images/          Local image artwork, exported through a named barrel
   features/
     home/                 Generator catalogue and feedback flow
     studio/               Video creation workspace and prompt validation
     generations/          Mock generation entity state and gallery view
     ui/                   Cross-feature UI state
+  shared/
+    components/           Reusable layout and UI primitives
+    icons/                Named icon exports
   lib/                    Shared utilities
   styles/                 Tokens and global styles
 ```

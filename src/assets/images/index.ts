@@ -1,0 +1,23 @@
+export { default as sidebarHomeImage } from './chrome/sidebar-home.png'
+
+export { default as angryRating } from './feedback/rating-angry.png'
+export { default as blushRating } from './feedback/rating-blush.png'
+export { default as heartEyesRating } from './feedback/rating-heart-eyes.png'
+export { default as neutralRating } from './feedback/rating-neutral.png'
+export { default as smirkRating } from './feedback/rating-smirk.png'
+
+export { default as docsArtwork } from './home/docs-art.png'
+export { default as imageArtwork } from './home/image-art.png'
+export { default as innovationArtwork } from './home/innovation-art.png'
+export { default as moreToolsLeftArtwork } from './home/more-tools-left.png'
+export { default as moreToolsMiddleArtwork } from './home/more-tools-middle.png'
+export { default as moreToolsRightArtwork } from './home/more-tools-right.png'
+export { default as slidesArtwork } from './home/slides-art.png'
+export { default as threeDArtwork } from './home/threed-art.png'
+export { default as videoArtwork } from './home/video-art.png'
+
+export { default as exploreMediaOne } from './generations/explore-01.png'
+export { default as exploreMediaTwo } from './generations/explore-02.png'
+export { default as exploreMediaThree } from './generations/explore-03.png'
+export { default as exploreMediaFour } from './generations/explore-04.png'
+export { default as exploreMediaFive } from './generations/explore-05.png'

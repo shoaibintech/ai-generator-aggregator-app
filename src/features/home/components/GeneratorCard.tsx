@@ -8,9 +8,13 @@ type GeneratorCardProps = {
 
 export function GeneratorCard({ generator, onSelect }: GeneratorCardProps) {
   return (
-    <button className="generator-card" onClick={() => onSelect(generator)} type="button">
-      <img alt={`${generator.name}: ${generator.description}`} className="generator-card-desktop" src={generator.previewImage} />
-      <img alt={`${generator.name}: ${generator.description}`} className="generator-card-mobile" src={generator.mobilePreviewImage ?? generator.previewImage} />
-    </button>
+    <article className="generator-card">
+      <img alt="" aria-hidden="true" className="generator-artwork" src={generator.artwork} />
+      <div className="generator-copy">
+        <strong>{generator.name}</strong>
+        <span>{generator.description}</span>
+      </div>
+      <button aria-label={`Open ${generator.name}`} className="generator-card-action" onClick={() => onSelect(generator)} type="button" />
+    </article>
   )
 }

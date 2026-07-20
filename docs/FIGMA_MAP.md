@@ -6,13 +6,15 @@ Source file: `Video Lab` (`dh0Pfb256yranCJuRw8vwB`)
 | --- | --- | --- |
 | Desktop Home | `648:251901` | `features/home/HomePage.tsx` |
 | Mobile Home | `690:752117` | Responsive rules in `features/home/home.css` |
-| Home generator cards | `690:701915`, `690:708760` | `components/GeneratorCard.tsx` |
-| Mobile generator cards | `738:20678`, `738:16036`, `738:25259`, `700:880365` | `components/GeneratorCard.tsx` |
-| Feedback dialog | `652:337703` | `components/FeedbackModal.tsx` |
+| Home generator cards | `717:990976`, `710:972583`, `817:2380`, `690:708761` | `features/home/components/GeneratorCard.tsx` |
+| Home card artwork only | `717:990980`, `710:972587`, `817:2384`, `690:708765` | `assets/images/home` (live card copy remains selectable) |
+| More tools callout decoration | `648:265845`, `648:268112`, `648:270379` | `features/home/HomePage.tsx` (live heading, description, button) |
+| Feedback dialog | `652:337703` | `features/home/components/FeedbackModal.tsx` |
 | Desktop Video Creation | `665:359385` | `features/studio/StudioPage.tsx` |
-| Desktop tab galleries | `665:359412`, `665:359617`, `665:360617` | `components/MediaMasonry.tsx` |
-| Mobile tab galleries | `33:2060`, `33:2174`, `33:2281` | `components/MediaMasonry.tsx` |
-| Generations gallery | `665:360874`, `665:361144` | `components/MediaMasonry.tsx` |
-| Sidebar / app mark | `830:37459` | `components/layout/Sidebar.tsx` |
+| Prompt composer | `665:359439` | `features/studio/components/PromptComposer.tsx` |
+| Desktop tab galleries | `665:359412`, `665:359617`, `665:360617` | `features/generations/components/GenerationGrid.tsx` (individual cards) |
+| Mobile tab galleries | `33:2060`, `33:2174`, `33:2281` | Responsive rules in `features/generations/generations.css` |
+| Generation process / detail dialog | `665:361833` | `features/generations/components/GenerationDetailDialog.tsx` |
+| Sidebar / app mark | `830:37459` | `shared/components/layout/Sidebar.tsx` |
 
-The connected Figma account is read-only. Rendered screenshots of the referenced Figma nodes are stored under `src/assets/figma/` and used as local, versioned visual assets. This preserves the supplied illustrations, gallery images, labels, and card composition without depending on temporary Figma URLs at runtime.
+The connected Figma account is read-only. Small source artwork exports are versioned under `src/assets/images/` and imported through `src/assets/images/index.ts`. Screen-wide screenshots are intentionally not shipped: headings, labels, prompts, settings, and buttons remain live, selectable DOM content.

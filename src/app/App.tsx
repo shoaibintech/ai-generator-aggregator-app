@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { AppShell } from '../components/layout/AppShell'
+import { AppShell } from '../shared/components/layout'
 import { HomePage } from '../features/home/HomePage'
 import { StudioPage } from '../features/studio/StudioPage'
 import { GenerationsPage } from '../features/generations/GenerationsPage'

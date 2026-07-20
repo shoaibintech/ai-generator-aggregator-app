@@ -1,9 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { promptSchema } from './promptSchema'
+import { promptDefaults, promptSchema } from './promptSchema'
 
 describe('promptSchema', () => {
   it('requires enough context to create a video', () => {
-    expect(promptSchema.safeParse({ prompt: 'A dragon flying at dawn over a lake' }).success).toBe(true)
-    expect(promptSchema.safeParse({ prompt: 'dragon' }).success).toBe(false)
+    expect(promptSchema.safeParse({ ...promptDefaults, prompt: 'A dragon flying at dawn over a lake' }).success).toBe(true)
+    expect(promptSchema.safeParse({ ...promptDefaults, prompt: 'dragon' }).success).toBe(false)
+  })
+
+  it('only accepts supported generation settings', () => {
+    expect(promptSchema.safeParse({ ...promptDefaults, prompt: 'A bright character study in a sunlit studio', resolution: '4K' }).success).toBe(false)
   })
 })
