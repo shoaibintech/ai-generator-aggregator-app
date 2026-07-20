@@ -27,6 +27,10 @@ npm run lint
 npm test
 ```
 
+## Deployment
+
+Pushing `main` runs the GitHub Actions Pages workflow in `.github/workflows/deploy-pages.yml`. The Vite base path is set automatically for GitHub Pages builds and remains `/` for local development.
+
 ## Implemented UI
 
 - Home generator catalogue with category/search controls and responsive cards
