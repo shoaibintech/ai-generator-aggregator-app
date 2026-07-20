@@ -19,12 +19,11 @@
 .composer-actions, .prompt-settings, .composer-cta { display: flex; align-items: center; gap: 8px; }
 .composer-utility, .composer-select { display: inline-flex; min-height: 29px; align-items: center; gap: 4px; padding: 0 8px; border: 0; border-radius: 8px; color: #535255; background: #f1f1f2; font-size: 12px; }
 .composer-utility { cursor: pointer; }
+.composer-icon { width: 16px; height: 16px; object-fit: contain; }
 .composer-file-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.composer-select { position: relative; }
-.composer-select select { min-height: 29px; max-width: 96px; padding: 0 15px 0 0; border: 0; outline: 0; color: inherit; appearance: none; background: transparent; cursor: pointer; font: inherit; }
-.composer-select::after { width: 0; height: 0; margin-left: -10px; border-top: 4px solid #77767a; border-right: 3px solid transparent; border-left: 3px solid transparent; content: ''; pointer-events: none; }
-.composer-select--filter select { max-width: 58px; }
-.composer-select--model select { max-width: 118px; }
+.composer-select .dropdown-select__trigger { min-height: 29px; color: inherit; font-size: 12px; }
+.composer-select--model .dropdown-select__trigger { max-width: 118px; }
+.composer-select--filter .dropdown-select__trigger { max-width: 58px; }
 .audio-toggle { display: inline-flex; align-items: center; gap: 4px; padding: 0 7px; border-radius: 8px; color: #535255; background: #f1f1f2; font-size: 12px; }
 .audio-toggle input { position: absolute; opacity: 0; }
 .audio-toggle span { position: relative; display: inline-block; width: 26px; height: 14px; border-radius: var(--radius-pill); background: #858588; }
@@ -66,7 +65,7 @@
   .composer-actions { gap: 4px; }
   .composer-utility, .audio-toggle, .composer-select { padding: 0 6px; font-size: 11px; }
   .prompt-settings { gap: 4px; }
-  .composer-select, .composer-select select { min-height: 25px; font-size: 10px; }
+  .composer-select, .composer-select .dropdown-select__trigger { min-height: 25px; font-size: 10px; }
   .composer-cta { gap: 5px; }
   .composer-select--model { display: none; }
   .create-button { min-width: 76px; height: 35px; font-size: 13px; }

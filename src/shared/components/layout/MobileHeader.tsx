@@ -1,13 +1,13 @@
-import { Menu } from '../../icons'
-import { sidebarHomeImage } from '../../../assets/images'
 import { Link } from 'react-router-dom'
+import { logomark } from '../../../assets/images'
+import { Menu } from '../../icons'
 import './app-shell.css'
 
 export function MobileHeader() {
   return (
     <header className="mobile-header">
       <Link aria-label="Video Lab home" className="mobile-brand" to="/">
-        <span aria-hidden="true" className="brand-logo" style={{ backgroundImage: `url(${sidebarHomeImage})` }} />
+        <img alt="" aria-hidden="true" className="brand-logo" src={logomark} />
       </Link>
       <button aria-label="Open navigation" className="mobile-menu" type="button">
         <Menu aria-hidden="true" size={22} />

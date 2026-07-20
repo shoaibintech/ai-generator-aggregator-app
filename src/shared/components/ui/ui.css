@@ -9,6 +9,16 @@
 
 @keyframes skeleton-shimmer { to { background-position: -200% 0; } }
 
+.dropdown-select { position: relative; display: inline-flex; }
+.dropdown-select__trigger { display: inline-flex; min-height: 28px; align-items: center; gap: 3px; padding: 0; border: 0; color: #3a393b; background: transparent; cursor: pointer; font: inherit; white-space: nowrap; }
+.dropdown-select__trigger:focus-visible { outline: 2px solid rgb(86 109 228 / 48%); outline-offset: 3px; }
+.dropdown-select__icon { width: 14px; height: 14px; object-fit: contain; }
+.dropdown-select__menu { position: absolute; z-index: 40; display: grid; min-width: max-content; overflow: hidden; border: 1px solid #dedde0; border-radius: 9px; background: white; box-shadow: 0 10px 24px rgb(39 36 43 / 18%); }
+.dropdown-select--bottom .dropdown-select__menu { top: calc(100% + 7px); left: 0; }
+.dropdown-select--top .dropdown-select__menu { right: 0; bottom: calc(100% + 7px); }
+.dropdown-select__option { min-height: 31px; padding: 0 11px; border: 0; color: #535255; background: transparent; cursor: pointer; font: inherit; font-size: 12px; text-align: left; white-space: nowrap; }
+.dropdown-select__option:hover, .dropdown-select__option.is-selected { color: #333235; background: #f0eff1; }
+
 .modal-backdrop {
   position: fixed;
   z-index: 30;

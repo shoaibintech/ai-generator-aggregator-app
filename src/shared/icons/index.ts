@@ -8,6 +8,7 @@ export {
   FileText,
   FolderOpen,
   Grid2X2,
+  Grip,
   Home,
   ImagePlus,
   Images,

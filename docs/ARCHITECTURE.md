@@ -10,6 +10,8 @@ Feature code owns its UI, schemas, mock data, and state-facing selectors. Shared
 
 `shared/components` owns UI primitives and application shell composition; `shared/icons` and `assets/images` expose named barrel exports. Feature components import these public entry points rather than reaching into individual image or icon files.
 
+The application is TypeScript-only (`.ts` / `.tsx`) with strict compiler checks enabled. Route labels and browser titles are modelled in `app/pageMetadata.ts`, keeping selected-page names consistent without scattering title strings through feature views.
+
 ## Adding a generator
 
 1. Add catalogue metadata in `features/home/generatorCatalog.ts`.
@@ -27,6 +29,7 @@ Global tokens live in `styles/tokens.css`. Component/feature CSS is deliberately
 - Dialogs close on Escape and have dialog semantics.
 - Buttons, form controls, navigation, tabs, and image alternatives have accessible names.
 - Keyboard focus uses a visible focus ring.
+- Prompt setting controls expose button/listbox semantics rather than relying on browser-native select styling.
 
 ## Mock-data contract
 

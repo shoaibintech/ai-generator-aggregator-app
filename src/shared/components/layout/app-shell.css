@@ -24,7 +24,7 @@
   height: 104px;
   place-items: center;
 }
-.brand-logo { display: block; width: 29px; height: 29px; background-repeat: no-repeat; background-position: -26px -44px; background-size: 81px 1168px; }
+.brand-logo { display: block; width: 29px; height: 29px; object-fit: contain; }
 
 .sidebar-divider { width: 60px; border-top: 2px solid #dedede; }
 .sidebar-nav { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 8px; padding-top: 31px; }
@@ -42,6 +42,8 @@
 .sidebar-link:hover { color: #57575a; background: white; }
 .sidebar-link.is-active { color: #4a4a4d; background: white; box-shadow: 0 3px 5px rgb(0 0 0 / 12%); }
 .sidebar-link:focus-visible { outline: 2px solid rgb(64 63 66 / 35%); outline-offset: 2px; }
+.sidebar-link-icon { width: 19px; height: 19px; opacity: .62; filter: grayscale(1) contrast(.82); }
+.sidebar-link.is-active .sidebar-link-icon { opacity: 1; filter: grayscale(1) contrast(1.35) brightness(.5); }
 
 .sidebar-create {
   display: grid;
