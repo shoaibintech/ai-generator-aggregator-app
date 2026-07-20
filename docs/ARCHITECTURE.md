@@ -1,0 +1,31 @@
+# Architecture
+
+## Design principles
+
+Feature code owns its UI, schemas, mock data, and state-facing selectors. Shared code belongs in `components`, `app`, `lib`, or `styles` only when it is reused across two or more features.
+
+## State boundaries
+
+`features/ui` contains application-wide, transient UI state such as the feedback dialog and selected generation. `features/generations` uses Redux Toolkit's entity adapter so a real API can replace the mocked records without changing consumers. Form state remains local in React Hook Form; validated values are the only values promoted to feature actions.
+
+## Adding a generator
+
+1. Add catalogue metadata in `features/home/generatorCatalog.ts`.
+2. Create a feature folder when its workflow has distinct controls or domain models.
+3. Reuse `AppShell`, common form patterns, skeletons, and the shared generation entity type where they fit.
+4. Keep API calls in a future RTK Query service, not inside React components.
+
+## Styling
+
+Global tokens live in `styles/tokens.css`. Component/feature CSS is deliberately colocated with the corresponding React feature. Tailwind is available for utility-level additions, while composed Figma layouts are expressed through named classes to keep complex visual behavior readable and reviewable.
+
+## Validation and accessibility
+
+- All user-entered feedback and prompts are validated with Zod and React Hook Form.
+- Dialogs close on Escape and have dialog semantics.
+- Buttons, form controls, navigation, tabs, and image alternatives have accessible names.
+- Keyboard focus uses a visible focus ring.
+
+## Mock-data contract
+
+Mock generation data is typed as `Generation`. Keep it aligned with the expected server response shape. Avoid raw untyped objects in components; changes should be isolated to the adapter/service boundary.

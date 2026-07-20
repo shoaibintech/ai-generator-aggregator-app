@@ -1,0 +1,9 @@
+.generations-page { width: min(100%, var(--content-width)); margin: 0 auto; }
+.generations-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin: 6px 0 54px; }
+.generations-header h1 { margin: 0 0 18px; color: var(--ink); font-size: 30px; font-weight: 640; letter-spacing: -1px; }
+.generation-filters { display: flex; gap: 8px; }
+.generation-filters button { min-height: 34px; padding: 0 13px; border: 0; border-radius: var(--radius-pill); color: #858487; background: #f4f4f4; }
+.generation-filters button.is-active { color: white; background: #39393b; }
+.generations-search { display: flex; width: 250px; height: 36px; align-items: center; gap: 7px; padding: 0 11px; border: 1px solid #c8c8ca; border-radius: var(--radius-pill); color: #9d9da0; }
+.generations-search input { width: 100%; border: 0; outline: 0; background: transparent; font-size: 14px; }
+@media (max-width: 720px) { .generations-header { margin: 15px 0 28px; flex-direction: column; } .generations-header h1 { font-size: 24px; } .generations-search { width: 100%; } }
