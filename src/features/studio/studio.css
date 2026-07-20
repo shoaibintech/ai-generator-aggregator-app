@@ -8,12 +8,17 @@
 .studio-tabs { display: flex; gap: 15px; margin-top: 24px; }
 .studio-tabs button { min-height: 36px; padding: 0 12px; border: 0; border-radius: var(--radius-pill); color: #aaa9ac; background: transparent; font-size: 15px; }
 .studio-tabs button.is-active { border: 1px solid #e0e0e2; color: #3c3b3d; background: #f5f5f6; }
+.studio-tabs button:focus-visible, .view-switcher button:focus-visible { outline: 2px solid rgb(64 63 66 / 35%); outline-offset: 2px; }
 
 .view-switcher { display: inline-flex; min-width: 245px; padding: 3px; border: 1px solid #dbdbdc; border-radius: var(--radius-pill); background: #f6f6f6; }
 .view-switcher button { display: inline-flex; height: 36px; flex: 1; align-items: center; justify-content: center; gap: 5px; border: 0; border-radius: var(--radius-pill); color: #a4a4a6; background: transparent; font-size: 15px; }
 .view-switcher button.is-active { color: #434244; background: white; box-shadow: 0 1px 3px rgb(0 0 0 / 18%); }
 
 .media-masonry { display: grid; grid-template-columns: 1fr 1.06fr 1fr 1fr; grid-auto-flow: dense; gap: 10px 20px; align-items: start; }
+.media-masonry--snapshot { display: block; width: 100%; }
+.media-snapshot { display: block; width: 100%; overflow: hidden; padding: 0; border: 0; border-radius: 8px; background: transparent; cursor: pointer; }
+.media-snapshot img { display: block; width: 100%; height: auto; }
+.media-masonry--generations .media-snapshot { border-radius: 0; }
 .media-tile { width: 100%; overflow: hidden; padding: 0; border: 0; border-radius: 8px; background: #e9e9e9; }
 .media-tile:hover img { transform: scale(1.025); }
 .media-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
@@ -69,17 +74,27 @@
 }
 
 @media (max-width: 720px) {
-  .studio-page { min-height: calc(100svh - 112px); padding-bottom: 190px; }
-  .studio-header { gap: 22px; margin: 15px 0 28px; }
-  .studio-header h1 { font-size: 23px; letter-spacing: -.75px; }
-  .studio-tabs { width: calc(100vw - 24px); gap: 2px; overflow: auto; margin-top: 18px; }
-  .studio-tabs button { flex: 0 0 auto; min-height: 31px; padding: 0 10px; font-size: 13px; }
-  .view-switcher { min-width: 224px; }
-  .view-switcher button { height: 32px; font-size: 13px; }
+  .studio-page { min-height: calc(100svh - 112px); padding-bottom: 227px; }
+  .studio-content { width: calc(100% + 4px); margin-left: -2px; }
+  .studio-header { position: relative; display: block; margin: 0 0 40px; padding-top: 85px; }
+  .studio-header h1 { width: 314px; margin-inline: auto; text-align: center; font-size: 30px; letter-spacing: -1px; line-height: 1.2; }
+  .studio-header h1 span { display: block; }
+  .studio-tabs { width: 335px; justify-content: space-between; gap: 0; overflow: visible; margin: 34px auto 0; }
+  .studio-tabs button { flex: 0 0 auto; min-height: 34px; padding: 0; font-size: 13px; }
+  .studio-tabs button:nth-child(1) { width: 128px; }
+  .studio-tabs button:nth-child(2) { width: 112px; }
+  .studio-tabs button:nth-child(3) { width: 89px; }
+  .studio-page--generations .studio-tabs button:nth-child(1) { width: auto; padding-inline: 11px; }
+  .studio-page--generations .studio-tabs button:nth-child(2), .studio-page--generations .studio-tabs button:nth-child(3), .studio-page--generations .studio-tabs button:nth-child(4) { width: auto; padding-inline: 5px; }
+  .view-switcher { position: absolute; top: 13px; left: 50%; width: 247px; min-width: 0; padding: 4px; transform: translateX(-50%); }
+  .view-switcher button { height: 37px; font-size: 13px; }
   .media-masonry { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .media-masonry--snapshot { display: block; }
   .media-tile--portrait { aspect-ratio: .81; }
-  .prompt-composer { bottom: 14px; left: 12px; width: calc(100vw - 24px); min-height: 171px; padding: 13px 10px 10px; transform: none; }
-  .prompt-composer textarea { min-height: 63px; padding: 13px 0; font-size: 14px; }
+  .prompt-composer { bottom: 0; left: 0; width: 100vw; min-height: 227px; padding: 15px 12px 13px; border-radius: 18px 18px 0 0; transform: none; }
+  .prompt-composer--image .composer-topline > .composer-actions:last-child { display: none; }
+  .prompt-composer--text .composer-topline { display: none; }
+  .prompt-composer textarea { min-height: 78px; padding: 13px 0; font-size: 14px; }
   .composer-topline { align-items: flex-start; }
   .composer-actions { gap: 4px; }
   .composer-utility, .audio-toggle { padding: 0 6px; font-size: 11px; }

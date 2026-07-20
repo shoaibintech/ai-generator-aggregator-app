@@ -30,10 +30,10 @@ npm test
 ## Implemented UI
 
 - Home generator catalogue with category/search controls and responsive cards
-- Figma-inspired Video Creation workspace with media masonry, controls, validated prompt composer, and loading skeletons
+- Figma-matched Home and Video Creation visuals, using local rendered assets from the supplied Screens source frames
 - Generations gallery and detail panel
 - Feedback dialog with validated rating and suggestion form
-- Desktop navigation rail and mobile header/layouts
+- Desktop navigation rail, exact mobile card/gallery variants, and responsive layouts
 
 The images and generation objects are intentionally mocked in `src/features/generations/generationsSlice.ts`. Replacing them with an API later should happen behind an RTK Query service layer, without changing feature components.
 

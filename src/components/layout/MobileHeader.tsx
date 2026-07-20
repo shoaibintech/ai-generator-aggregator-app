@@ -1,4 +1,4 @@
-import { Menu, Shapes } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import './app-shell.css'
 
@@ -6,7 +6,7 @@ export function MobileHeader() {
   return (
     <header className="mobile-header">
       <Link aria-label="Video Lab home" className="mobile-brand" to="/">
-        <Shapes aria-hidden="true" size={27} strokeWidth={3.5} />
+        <span aria-hidden="true" className="brand-logo" />
       </Link>
       <button aria-label="Open navigation" className="mobile-menu" type="button">
         <Menu aria-hidden="true" size={22} />

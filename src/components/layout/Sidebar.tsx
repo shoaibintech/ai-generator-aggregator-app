@@ -7,41 +7,52 @@ import {
   Home,
   Images,
   Plus,
-  Shapes,
   Video,
 } from 'lucide-react'
-import { NavLink } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './app-shell.css'
 
 const navigation = [
-  { label: 'Home', icon: Home, to: '/' },
-  { label: 'Workspace', icon: BriefcaseBusiness, to: '/studio' },
-  { label: 'Projects', icon: FolderOpen, to: '/generations' },
-  { label: 'Images', icon: Images, to: '/studio' },
-  { label: 'Video creation', icon: Video, to: '/studio' },
-  { label: '3D Lab', icon: Box, to: '/' },
-  { label: 'Docs Lab', icon: FileText, to: '/' },
-  { label: 'All tools', icon: Grid2X2, to: '/' },
+  { id: 'home', label: 'Home', icon: Home, to: '/' },
+  { id: 'workspace', label: 'Workspace', icon: BriefcaseBusiness, to: '/' },
+  { id: 'projects', label: 'Projects', icon: FolderOpen, to: '/generations' },
+  { id: 'images', label: 'Images', icon: Images, to: '/studio?tool=image' },
+  { id: 'video', label: 'Video creation', icon: Video, to: '/studio?tool=video' },
+  { id: 'threed', label: '3D Lab', icon: Box, to: '/studio?tool=3d' },
+  { id: 'docs', label: 'Docs Lab', icon: FileText, to: '/studio?tool=docs' },
+  { id: 'all-tools', label: 'All tools', icon: Grid2X2, to: '/' },
 ]
 
 export function Sidebar() {
+  const location = useLocation()
+  const selectedTool = new URLSearchParams(location.search).get('tool')
+
+  const isSelected = (id: string) => {
+    if (id === 'workspace') return location.pathname === '/'
+    if (id === 'projects') return location.pathname === '/generations'
+    if (id === 'images') return location.pathname === '/studio' && selectedTool === 'image'
+    if (id === 'video') return location.pathname === '/studio' && selectedTool !== 'image' && selectedTool !== '3d' && selectedTool !== 'docs'
+    if (id === 'threed') return location.pathname === '/studio' && selectedTool === '3d'
+    if (id === 'docs') return location.pathname === '/studio' && selectedTool === 'docs'
+    return false
+  }
+
   return (
     <aside className="app-sidebar">
-      <NavLink aria-label="Video Lab home" className="brand-mark" to="/">
-        <Shapes aria-hidden="true" size={28} strokeWidth={3.5} />
-      </NavLink>
+      <Link aria-label="Video Lab home" className="brand-mark" to="/"><span aria-hidden="true" className="brand-logo" /></Link>
       <div className="sidebar-divider" />
       <nav aria-label="Primary navigation" className="sidebar-nav">
-        {navigation.map(({ icon: Icon, label, to }) => (
-          <NavLink
+        {navigation.map(({ icon: Icon, id, label, to }) => (
+          <Link
             aria-label={label}
-            className={({ isActive }) => `sidebar-link ${isActive && (to === '/' || to === '/studio' || to === '/generations') ? 'is-active' : ''}`}
+            aria-current={isSelected(id) ? 'page' : undefined}
+            className={`sidebar-link ${isSelected(id) ? 'is-active' : ''}`}
             key={label}
             title={label}
             to={to}
           >
             <Icon aria-hidden="true" size={19} strokeWidth={1.6} />
-          </NavLink>
+          </Link>
         ))}
       </nav>
       <button aria-label="Create something new" className="sidebar-create" type="button">

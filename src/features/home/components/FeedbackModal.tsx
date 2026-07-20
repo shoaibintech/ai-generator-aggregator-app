@@ -1,18 +1,23 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { Check, Heart, Meh, Frown, Annoyed, Smile } from 'lucide-react'
+import { Check } from 'lucide-react'
 import { useAppDispatch } from '../../../app/hooks'
 import { closeFeedback } from '../../ui/uiSlice'
 import { Modal } from '../../../components/ui/Modal'
 import { feedbackSchema, type FeedbackValues } from '../feedbackSchema'
+import angryRating from '../../../assets/figma/home/rating-angry.png'
+import blushRating from '../../../assets/figma/home/rating-blush.png'
+import heartEyesRating from '../../../assets/figma/home/rating-heart-eyes.png'
+import neutralRating from '../../../assets/figma/home/rating-neutral.png'
+import smirkRating from '../../../assets/figma/home/rating-smirk.png'
 import '../home.css'
 
 const ratingOptions = [
-  { value: 1, label: 'Very unhappy', icon: Annoyed },
-  { value: 2, label: 'Unhappy', icon: Frown },
-  { value: 3, label: 'Neutral', icon: Meh },
-  { value: 4, label: 'Happy', icon: Smile },
-  { value: 5, label: 'Love it', icon: Heart },
+  { value: 1, label: 'Very unhappy', image: angryRating },
+  { value: 2, label: 'Unhappy', image: smirkRating },
+  { value: 3, label: 'Neutral', image: neutralRating },
+  { value: 4, label: 'Happy', image: blushRating },
+  { value: 5, label: 'Love it', image: heartEyesRating },
 ]
 
 export function FeedbackModal() {
@@ -33,7 +38,7 @@ export function FeedbackModal() {
         <fieldset className="feedback-fieldset">
           <legend>Rate us</legend>
           <div className="rating-row">
-            {ratingOptions.map(({ icon: Icon, label, value }) => (
+            {ratingOptions.map(({ image, label, value }) => (
               <button
                 aria-label={label}
                 className={`rating-button ${selectedRating === value ? 'is-selected' : ''}`}
@@ -41,7 +46,7 @@ export function FeedbackModal() {
                 onClick={() => setValue('rating', value, { shouldValidate: true })}
                 type="button"
               >
-                <Icon aria-hidden="true" size={30} fill={value === 5 ? 'currentColor' : 'none'} />
+                <img alt="" aria-hidden="true" src={image} />
               </button>
             ))}
           </div>

@@ -16,7 +16,7 @@ export function GenerationsPage() {
         </div>
         <label className="generations-search"><Search size={17} /><span className="sr-only">Search generations</span><input placeholder="Search generations" type="search" /></label>
       </header>
-      <MediaMasonry generations={generations} />
+      <MediaMasonry generations={generations} tab="all" view="generations" />
     </section>
   )
 }

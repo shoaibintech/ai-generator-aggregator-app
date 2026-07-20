@@ -6,6 +6,7 @@ import { openFeedback } from '../ui/uiSlice'
 import { FeedbackModal } from './components/FeedbackModal'
 import { GeneratorCard } from './components/GeneratorCard'
 import { generatorCatalog, type Generator, type GeneratorCategory } from './generatorCatalog'
+import moreToolsBanner from '../../assets/figma/home/more-tools-banner.png'
 import './home.css'
 
 type Filter = 'All' | GeneratorCategory
@@ -70,13 +71,10 @@ export function HomePage() {
         <button className="view-more" type="button"><ChevronDown size={16} /> View More</button>
 
         <section className="more-tools-callout">
-          <span className="callout-card callout-card--blue" aria-hidden="true" />
-          <div>
-            <h2>More tools are coming!</h2>
-            <p>More tools are being built. Have a suggestion?</p>
-            <button onClick={() => dispatch(openFeedback())} type="button">Leave a suggestion</button>
-          </div>
-          <span className="callout-card callout-card--yellow" aria-hidden="true" />
+          <h2 className="sr-only">More tools are coming!</h2>
+          <p className="sr-only">More tools are being built. Have a suggestion?</p>
+          <img alt="" aria-hidden="true" src={moreToolsBanner} />
+          <button aria-label="Leave a suggestion" className="more-tools-action" onClick={() => dispatch(openFeedback())} type="button" />
         </section>
       </div>
       {feedbackOpen && <FeedbackModal />}
